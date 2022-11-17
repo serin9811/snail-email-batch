@@ -26,6 +26,9 @@ Icon
 # Exclude Folder List #
 .gradle/
 build/
+gradle/*
+gradlew
+gradlew.bat
 
 ### IntelliJ ###
 *.iml
