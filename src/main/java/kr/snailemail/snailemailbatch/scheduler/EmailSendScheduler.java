@@ -36,7 +36,10 @@ public class EmailSendScheduler {
 
             jobParameterMap.put("requestDate", new JobParameter(time1));
             JobParameters parameters = new JobParameters(jobParameterMap);
-            jobLauncher.run(job, parameters);
+            JobExecution jobExecution = jobLauncher.run(job, parameters);
+            while(jobExecution.isRunning()) {
+                log.info("is Running...");
+            }
         } catch (JobExecutionAlreadyRunningException e) {
             e.printStackTrace();
         } catch (JobRestartException e) {

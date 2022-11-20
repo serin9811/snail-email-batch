@@ -9,6 +9,8 @@ spring:
     url: jdbc:h2:tcp://localhost/~/snail-email
     username: sa
     password:
+  jpa:
+    show-sql: true
 logging:
   level:
     root: info

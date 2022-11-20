@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @ToString
 @NoArgsConstructor
 @Entity
+@Table(name = "Emails")
 public class Email {
 
     @Id

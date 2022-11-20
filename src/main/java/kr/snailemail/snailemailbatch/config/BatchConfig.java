@@ -56,13 +56,13 @@ public class BatchConfig {
         log.info("==> reader value : " + requestDate);
         Map<String, Object> parameterValues = new HashMap<>();
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime dateTime = LocalDateTime.parse("2022-11-20 21:50:46", fmt);
+        LocalDateTime dateTime = LocalDateTime.parse(requestDate, fmt);
         parameterValues.put("sendDate", dateTime);
 
         return new JpaPagingItemReaderBuilder<Email>()
                 .pageSize(10)
                 .parameterValues(parameterValues)
-                .queryString("SELECT e FROM Email e WHERE e.sendDate >= sendDate")
+                .queryString("SELECT e FROM Email e WHERE e.sendDate >= :sendDate")
                 .entityManagerFactory(entityManagerFactory)
                 .name("JpaPagingItemReader")
                 .build();
